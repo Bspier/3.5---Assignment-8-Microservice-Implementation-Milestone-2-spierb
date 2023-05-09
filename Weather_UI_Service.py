@@ -7,8 +7,7 @@ while True:
 
     if userInput == '1':
         weather_service_file = open('weather_service_in.txt', 'w')
-        weather_service_file.write('{"temperature": 75,"description": "Sunny",'
-                                   '"humidity": 50,"wind_speed": 10}')
+        weather_service_file.write('{"temperature": 75,"description": "Sunny"}')
         weather_service_file.close()
         time.sleep(10)
 
