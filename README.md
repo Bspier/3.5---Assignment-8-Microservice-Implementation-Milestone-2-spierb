@@ -17,8 +17,10 @@ This README provides instructions to send dictionary objects to weather_service.
         weather_service_file.close()
         with open("weather_service_out.txt", "w") as in_file:
             in_file.truncate(0)
+        print(weather_obj)
 5. data from the weather_service.py is stored in the weather_obj variable as a dictionary object.
-
+6. Expected output
+{"clothing": "Shorts and t-shirt", "activity": "Go for a walk in the park or have a picnic", "food": "Grilled hamburgers or hot dogs", "accessories": "Sunblock or hat"}
 Weather Microservice UML
 
 ![weather_microservice_uml_diagram](https://user-images.githubusercontent.com/75771767/236983683-60ee9ab0-7930-443b-95ce-ab55dbbbda2f.png)
