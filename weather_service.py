@@ -1,381 +1,392 @@
 import json
+import time
 
 weather_rec_dict = {
     "95": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Light breathable clothing",
+            "activity": "Go swimming or have a picnic in the shade",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
     },
     "85": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Light breathable clothing",
+            "activity": "Go swimming or have a picnic in the shade",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
     },
     "70": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Light breathable clothing",
+            "activity": "Go swimming or have a picnic in the shade",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
     },
     "50": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Warm breathable clothing",
+            "activity": "Go for a walk or have a picnic in the shade",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Warm breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sweater"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Warm breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Warm water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
     },
     "30": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Warm breathable clothing",
+            "activity": "Go for a walk",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Warm clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Beanie"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be aware of changing weather conditions",
             "accessories": "Umbrella"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Warm breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Warm Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
     },
     "10": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Light breathable clothing",
+            "activity": "Go swimming or have a picnic in the shade",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
     },
     "0": {
         "clear sky": {
-            "clothing": "Shorts and t-shirt",
-            "activity": "Go for a walk in the park or have a picnic",
+            "clothing": "Warm heavy breathable clothing",
+            "activity": "Go swimming or have a picnic in the shade",
             "precautions": "Avoid prolonged sun exposure",
             "accessories": "Sunblock or hat"
         },
         "rain": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Be cautious of slippery surfaces",
             "accessories": "Umbrella"
         },
         "clouds": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "thunderstorm": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
+            "precautions": "Avoid the outdoors",
             "accessories": "Umbrella"
         },
         "mist": {
-            "clothing": "Pants and raincoat",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be aware of changing weather conditions",
+            "accessories": "Sunblock or hat"
         },
         "poor air quality": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Light breathable clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Limit outdoor exposure",
+            "accessories": "Respirator"
         },
         "snow": {
-            "clothing": "Shorts and t-shirt",
+            "clothing": "Water resistant clothing",
             "activity": "Read a book or watch a movie",
-            "precautions": " ",
-            "accessories": "Umbrella"
+            "precautions": "Be cautious of slippery surfaces",
+            "accessories": "Sunglasses or goggles"
         }
-    },
+    }
 }
 
 while True:
-    with open("weather_service_in.txt", "r") as in_file:
-        data_str = in_file.read()
 
-    data = json.loads(data_str)
-    if data is not None:
+    data_str = None
+
+    while data_str is None or not data_str.strip():
+        with open("weather_service_in.txt", "r") as in_file:
+            data_str = in_file.read()
+    try:
+        data = json.loads(data_str)
         weather = data["description"]
         temp = int(data["temperature"])
-        unit = (data["unit"])
+        unit = data["unit"]
 
-    if unit == "c" or "C":
-        temp = (temp * (9 / 5)) + 32
+        if unit.lower() == "c":
+            temp = (temp * 9 / 5) + 32
 
-    if weather == {"smoke", "haze", "sand/dust whirls", "sand", "dust", "volcanic ash", "squalls", "tornado"}:
-        weather = "poor air quality"
+        if weather in {"smoke", "haze", "sand/dust whirls", "sand", "dust", "volcanic ash", "squalls", "tornado"}:
+            weather = "poor air quality"
 
-    if weather == {"overcast clouds", "few clouds", "scattered clouds", "broken clouds"}:
-        weather = "clouds"
+        elif weather in {"overcast clouds", "few clouds", "scattered clouds", "broken clouds"}:
+            weather = "clouds"
 
-    if weather == "fog":
-        weather = "mist"
+        elif weather == "fog":
+            weather = "mist"
 
-    if weather == {"thunderstorm with light rain", "thunderstorm with rain", "thunderstorm with heavy rain",
-                   "light thunderstorm", "thunderstorm", "heavy thunderstorm", "ragged thunderstorm",
-                   "thunderstorm with light drizzle", "thunderstorm with drizzle", "thunderstorm with heavy drizzle"}:
-        weather = "thunderstorm"
+        elif weather in {"thunderstorm with light rain", "thunderstorm with rain", "thunderstorm with heavy rain",
+                         "light thunderstorm", "thunderstorm", "heavy thunderstorm", "ragged thunderstorm",
+                         "thunderstorm with light drizzle", "thunderstorm with drizzle", "thunderstorm with heavy drizzle"}:
+            weather = "thunderstorm"
 
-    if weather == {"light intensity drizzle", "drizzle", "heavy intensity drizzle", "light intensity drizzle rain",
-                   "drizzle rain", "heavy intensity drizzle rain", "shower rain and drizzle",
-                   "heavy shower rain and drizzle", "shower drizzle"}:
-        weather = "rain"
+        elif weather in {"light intensity drizzle", "drizzle", "heavy intensity drizzle", "light intensity drizzle rain",
+                         "drizzle rain", "heavy intensity drizzle rain", "shower rain and drizzle",
+                         "heavy shower rain and drizzle", "shower drizzle"}:
+            weather = "rain"
 
-    if weather == {"light rain", "moderate rain", "heavy intensity rain", "very heavy rain", "extreme rain",
-                   "freezing rain", "light intensity shower rain", "shower rain", "heavy intensity shower rain",
-                   "ragged shower rain"}:
-        weather = "rain"
+        elif weather in {"light rain", "moderate rain", "heavy intensity rain", "very heavy rain", "extreme rain",
+                         "freezing rain", "light intensity shower rain", "shower rain", "heavy intensity shower rain",
+                         "ragged shower rain"}:
+            weather = "rain"
 
-    if weather == {"light snow", "snow", "heavy snow", "sleet", "light shower sleet", "shower sleet",
-                   "light rain and snow", "rain and snow", "light shower snow", "shower snow", "heavy shower snow"}:
-        weather = "snow"
+        elif weather in {"light snow", "snow", "heavy snow", "sleet", "light shower sleet", "shower sleet",
+                         "light rain and snow", "rain and snow", "light shower snow", "shower snow", "heavy shower snow"}:
+            weather = "snow"
 
-    if temp >= 95:
-        weather_rec = weather_rec_dict["95"][weather]
+        if temp >= 95:
+            weather_rec = weather_rec_dict["95"][weather]
 
-    elif temp < 95 or temp >= 85:
-        weather_rec = weather_rec_dict["85"][weather]
+        elif temp < 95 or temp >= 85:
+            weather_rec = weather_rec_dict["85"][weather]
 
-    elif temp < 85 or temp >= 70:
-        weather_rec = weather_rec_dict["70"][weather]
+        elif temp < 85 or temp >= 70:
+            weather_rec = weather_rec_dict["70"][weather]
 
-    elif temp < 70 or temp >= 50:
-        weather_rec = weather_rec_dict["50"][weather]
+        elif temp < 70 or temp >= 50:
+            weather_rec = weather_rec_dict["50"][weather]
 
-    elif temp < 50 or temp >= 30:
-        weather_rec = weather_rec_dict["30"][weather]
+        elif temp < 50 or temp >= 30:
+            weather_rec = weather_rec_dict["30"][weather]
 
-    elif temp < 30 or temp >= 10:
-        weather_rec = weather_rec_dict["10"][weather]
+        elif temp < 30 or temp >= 10:
+            weather_rec = weather_rec_dict["10"][weather]
 
-    else:
-        weather_rec = weather_rec_dict["0"][weather]
+        else:
+            weather_rec = weather_rec_dict["0"][weather]
 
-    with open("weather_service_out.txt", "w") as out_file:
-        json.dump(weather_rec, out_file)
-    out_file.close()
+        with open("weather_service_out.txt", "w") as out_file:
+            json.dump(weather_rec, out_file)
+
+    except json.JSONDecodeError:
+        continue
 
     with open("weather_service_in.txt", "w") as in_file:
         in_file.truncate(0)
+
+    time.sleep(1)
+
+
+
